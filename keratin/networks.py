@@ -85,7 +85,7 @@ def unet(img_x, img_y, img_z=None, n_channels=1,
     cnv9_1 = conv(32, kernel_dims, activation='relu', padding='same')(up9)
     cnv9_2 = conv(32, kernel_dims, activation='relu', padding='same')(cnv9_1)
 
-    outputs = conv(1, final_kernel_dims, activation='sigmoid')(cnv9_2)
+    outputs = conv(n_channels, final_kernel_dims, activation='sigmoid')(cnv9_2)
     return km.Model(input=inputs, outputs=outputs)
 
 
